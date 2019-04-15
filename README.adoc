@@ -3,6 +3,12 @@
 
 [source, bash]
 ----
+python3 -m venv a
+source a/bin/activate
+----
+
+[source, bash]
+----
 pip install -r requirements.txt
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
