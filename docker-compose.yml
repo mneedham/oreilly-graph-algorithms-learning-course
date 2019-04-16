@@ -1,0 +1,24 @@
+version: '3'
+services:
+  training-neo4j:
+    image: neo4j:${NEO4J_VERSION:-latest}
+    container_name: "data-science-training-neo4j"
+    volumes:
+      - ./plugins:/plugins
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - "NEO4J_ACCEPT_LICENSE_AGREEMENT=yes"
+      - "NEO4J_AUTH=neo4j/neo"
+      - "NEO4J_dbms_security_procedures_unrestricted=apoc.*,algo.*"
+
+  training-jupyter:
+    container_name: "data-science-training-jupyter"
+    # image: jupyter/pyspark-notebook:${JUPYTER_VERSION:-latest}
+    image: markhneedham/pyspark-graphframes-neo4j-notebook:0.0.1
+    volumes:
+      - ./notebooks:/home/jovyan
+      - ./data:/home/jovyan/data
+    ports:
+      - "8888:8888"
