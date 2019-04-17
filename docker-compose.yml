@@ -5,6 +5,7 @@ services:
     container_name: "data-science-training-neo4j"
     volumes:
       - ./plugins:/plugins
+      - ./data:/import
     ports:
       - "7474:7474"
       - "7687:7687"
@@ -16,7 +17,7 @@ services:
   training-jupyter:
     container_name: "data-science-training-jupyter"
     # image: jupyter/pyspark-notebook:${JUPYTER_VERSION:-latest}
-    image: markhneedham/pyspark-graphframes-neo4j-notebook:0.0.1
+    image: markhneedham/pyspark-graphframes-neo4j-notebook:0.0.2
     volumes:
       - ./notebooks:/home/jovyan
       - ./data:/home/jovyan/data
