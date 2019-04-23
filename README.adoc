@@ -1,24 +1,29 @@
 =  O'Reilly Graph Algorithms Learning Course
 
+You can run all the notebooks in this repository by running the following command:
 
 [source, bash]
 ----
-python3 -m venv a
-source a/bin/activate
+docker-compose up
 ----
 
-[source, bash]
+We'll get output that contains something like this:
+
+[source, text]
 ----
-pip install -r requirements.txt
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+data-science-training-jupyter | [I 12:04:09.836 NotebookApp] JupyterLab extension loaded from /opt/conda/lib/python3.7/site-packages/jupyterlab
+data-science-training-jupyter | [I 12:04:09.836 NotebookApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+data-science-training-jupyter | [I 12:04:09.837 NotebookApp] Serving notebooks from local directory: /home/jovyan
+data-science-training-jupyter | [I 12:04:09.837 NotebookApp] The Jupyter Notebook is running at:
+data-science-training-jupyter | [I 12:04:09.837 NotebookApp] http://(2c06cde3563c or 127.0.0.1):8888/?token=20927ab73fbd2b841db595d4d2d0f6a0788a550c39a1faa3
+data-science-training-jupyter | [I 12:04:09.837 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+data-science-training-jupyter | [C 12:04:09.841 NotebookApp]
+data-science-training-jupyter |
+data-science-training-jupyter |     To access the notebook, open this file in a browser:
+data-science-training-jupyter |         file:///home/jovyan/.local/share/jupyter/runtime/nbserver-6-open.html
+data-science-training-jupyter |     Or copy and paste one of these URLs:
+data-science-training-jupyter |         http://(2c06cde3563c or 127.0.0.1):8888/?token=20927ab73fbd2b841db595d4d2d0f6a0788a550c39a1faa3
 ----
 
-[source, bash]
-----
-export SPARK_VERSION="spark-2.4.1-bin-hadoop2.7"
-./${SPARK_VERSION}/bin/pyspark \
-  --driver-memory 2g \
-  --executor-memory 6g \
-  --packages graphframes:graphframes:0.7.0-spark2.4-s_2.11
-----
+We can then navigate to `http://localhost:8888/?token=20927ab73fbd2b841db595d4d2d0f6a0788a550c39a1faa3`.
+We'll need to update the `token=<token>` part of that URI to match our own token.
