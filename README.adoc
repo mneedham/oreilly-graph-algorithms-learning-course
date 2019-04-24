@@ -4,7 +4,7 @@
 gunzip data/188591317_T_ONTIME.csv.gz
 ```
 
-You can run all the notebooks in this repository by running the following command:
+We can run all the notebooks in this repository by running the following command:
 
 [source, bash]
 ----
